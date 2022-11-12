@@ -76,7 +76,7 @@ stdenv.mkDerivation rec{
     meta = with lib; {
       homepage = https://github.com/Fndroid/clash_for_windows_pkg;
       description = "A Windows/macOS/Linux GUI based on Clash and Electron";
-      license = licenses.unfree;
+      #license = licenses.unfree;
       platforms = [ "x86_64-linux" ];
     };
   }
