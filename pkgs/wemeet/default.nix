@@ -1,5 +1,4 @@
-{ sources
-, lib
+{ lib
 , autoPatchelfHook
 , stdenv
 , dpkg
