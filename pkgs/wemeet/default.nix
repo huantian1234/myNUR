@@ -7,6 +7,7 @@
 , rsync
 , fd
 , qt5
+, fetchurl
 }:
 
 let
