@@ -98,7 +98,6 @@ qt5.mkDerivation rec {
   meta = with lib; {
     homepage = https://meeting.tencent.com;
     description = "Tencent Video Conferencing, tencent meeting";
-    license = licenses.unfree;
     platforms = [ "x86_64-linux" ];
   };
 }
