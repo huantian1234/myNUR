@@ -16,12 +16,12 @@
 }:
 let
   clash-for-windows-icon = {
-  pname = "clash-for-windows-icon";
-  version = "0";
-  src = fetchurl {
-  url = "https://docs.cfw.lbyczf.com/favicon.ico";
-    sha256 = "sha256-4uLJzumIqF6T1yvrdKciqrSNYpJ1+6ecmonRzOsopP0=";
-  };
+    pname = "clash-for-windows-icon";
+    version = "0";
+    src = fetchurl {
+    url = "https://docs.cfw.lbyczf.com/favicon.ico";
+      sha256 = "sha256-4uLJzumIqF6T1yvrdKciqrSNYpJ1+6ecmonRzOsopP0=";
+    };
   };
   desktopItem = makeDesktopItem {
     name = "clash-for-windows";
@@ -72,6 +72,13 @@ stdenv.mkDerivation rec{
       
       mkdir -p "$out/share/applications"
       install "${desktopItem}/share/applications/"* "$out/share/applications/"
+      icon_dir="$out/share/icons/hicolor"
+      for s in 16 24 32 48 64 128 256; do
+        size="''${s}x''${s}"
+        echo "create icon \"$size\""
+        mkdir -p "$icon_dir/$size/apps"
+        ${imagemagick}/bin/convert -resize "$size" "${icon}" "$icon_dir/$size/apps/clash-for-windows.png"
+      done
     '';
     meta = with lib; {
       homepage = https://github.com/Fndroid/clash_for_windows_pkg;
