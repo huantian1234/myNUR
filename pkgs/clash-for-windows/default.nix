@@ -12,7 +12,8 @@
   udev,
   at-spi2-atk,
   pango,
-  makeDesktopItem
+  makeDesktopItem,
+  imagemagick
 }:
 let
   clash-for-windows-icon = {
